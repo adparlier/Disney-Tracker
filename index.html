@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Walt Disney World 2027 — Aaron & Lauren</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0e2340;
+    --navy-mid: #1a3a5c;
+    --navy-light: #1f4878;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-pale: #f5e8c0;
+    --cream: #fdf6e3;
+    --cream-dark: #f0e6c8;
+    --teal: #3d9e7a;
+    --teal-light: #5DCAA5;
+    --text-dark: #1a1a2e;
+    --text-mid: #4a5568;
+    --text-light: #8a9ab5;
+    --border: rgba(201,168,76,0.2);
+    --disney-badge: #dce8f5;
+    --pixar-badge: #e1f5ee;
+    --sw-badge: #faeeda;
+    --marvel-badge: #fcebeb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+  }
+
+  /* ── STARS BACKGROUND ─────────────────────────── */
+  .stars-bg {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+    background: linear-gradient(160deg, var(--navy) 0%, #0a1628 60%, #141030 100%);
+  }
+  .star {
+    position: absolute; border-radius: 50%; background: white;
+    animation: twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: var(--min-op, 0.3); transform: scale(1); }
+    50% { opacity: var(--max-op, 1); transform: scale(1.3); }
+  }
+
+  /* ── LAYOUT ───────────────────────────────────── */
+  .page-wrap {
+    position: relative; z-index: 1;
+    max-width: 780px; margin: 0 auto;
+    padding: 0 16px 80px;
+  }
+
+  /* ── HERO HEADER ──────────────────────────────── */
+  .hero {
+    text-align: center;
+    padding: 48px 24px 32px;
+  }
+  .castle-svg {
+    width: 120px; height: auto;
+    margin: 0 auto 16px;
+    opacity: 0.95;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .hero-sub2 {
+    font-size: 13px;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .hero-names {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold-light);
+  }
+
+  /* ── DIVIDER ──────────────────────────────────── */
+  .divider {
+    display: flex; align-items: center; gap: 12px;
+    margin: 20px 0;
+  }
+  .divider-line { flex: 1; height: 0.5px; background: var(--border); }
+  .divider-star {
+    color: var(--gold); font-size: 14px;
+  }
+
+  /* ── COUNTDOWN ────────────────────────────────── */
+  .countdown-card {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 12px;
+  }
+  .countdown-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    margin-bottom: 20px;
+  }
+  .cd-block {
+    background: rgba(201,168,76,0.08);
+    border: 0.5px solid rgba(201,168,76,0.25);
+    border-radius: 12px;
+    padding: 14px 8px;
+    text-align: center;
+  }
+  .cd-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .cd-label {
+    font-size: 9px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 5px;
+  }
+  .sleeps-line {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .progress-label-row {
+    display: flex; justify-content: space-between;
+    font-size: 11px; color: var(--text-light);
+    margin-bottom: 6px;
+  }
+  .progress-track {
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px; height: 7px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; border-radius: 6px;
+    transition: width 0.5s ease;
+  }
+  .fill-gold { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+  .fill-teal { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
+
+  /* ── SAVINGS ──────────────────────────────────── */
+  .savings-card {
+    background: rgba(61,158,122,0.08);
+    border: 0.5px solid rgba(93,202,165,0.25);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .savings-left { flex: 1; }
+  .savings-eyebrow {
+    font-size: 9px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--teal-light);
+    margin-bottom: 4px;
+  }
+  .savings-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; font-weight: 600;
+    color: var(--teal-light); line-height: 1;
+    margin-bottom: 4px;
+  }
+  .savings-goal-text { font-size: 11px; color: var(--text-light); margin-bottom: 12px; }
+  .savings-history-item {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; color: var(--text-light);
+    padding: 3px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.06);
+  }
+  .savings-history-item:last-child { border-bottom: none; }
+  .savings-history-item button {
+    background: none; border: none; color: rgba(255,255,255,0.3);
+    cursor: pointer; font-size: 12px; padding: 0 4px;
+  }
+  .savings-history-item button:hover { color: rgba(255,255,255,0.6); }
+  .savings-right {
+    display: flex; flex-direction: column; gap: 8px; align-items: flex-end;
+    padding-top: 4px;
+  }
+  .savings-input-wrap { display: flex; gap: 6px; }
+  .savings-input-wrap input {
+    width: 100px; font-size: 13px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    border: 0.5px solid rgba(93,202,165,0.3);
+    background: rgba(255,255,255,0.06);
+    color: var(--cream); outline: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .savings-input-wrap input::placeholder { color: rgba(255,255,255,0.3); }
+  .savings-input-wrap input:focus { border-color: var(--teal-light); }
+  .btn-add {
+    font-size: 12px; padding: 7px 14px;
+    border-radius: 8px;
+    border: 0.5px solid var(--teal-light);
+    background: transparent; color: var(--teal-light);
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+  .btn-add:hover { background: var(--teal-light); color: #04342C; }
+  .btn-reset {
+    font-size: 11px; padding: 5px 10px;
+    border-radius: 8px;
+    border: 0.5px solid rgba(255,255,255,0.15);
+    background: transparent; color: var(--text-light);
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+  .btn-reset:hover { border-color: rgba(255,255,255,0.3); color: var(--cream); }
+
+  /* ── SYNC BAR ─────────────────────────────────── */
+  .sync-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-size: 11px; color: var(--text-light);
+  }
+  .sync-dot {
+    display: inline-block; width: 6px; height: 6px;
+    border-radius: 50%; margin-right: 7px;
+    background: #888; transition: background 0.3s;
+  }
+  .sync-dot.ok { background: var(--teal-light); }
+  .sync-dot.err { background: #E24B4A; }
+  .sync-dot.loading { background: var(--gold); animation: pulse 1s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+  .btn-sync {
+    font-size: 11px; background: none; border: none;
+    color: var(--text-light); cursor: pointer; font-family: 'Inter', sans-serif;
+  }
+  .btn-sync:hover { color: var(--cream); }
+
+  /* ── FRANCHISE SECTIONS ───────────────────────── */
+  .franchise-section { margin-bottom: 16px; }
+  .franchise-header {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 20px 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .franchise-logo { height: 32px; width: auto; }
+  .franchise-count {
+    margin-left: auto;
+    font-size: 11px; color: var(--text-light);
+  }
+  .franchise-chevron {
+    font-size: 12px; color: var(--text-light);
+    transition: transform 0.2s;
+  }
+  .franchise-chevron.open { transform: rotate(180deg); }
+  .franchise-body {
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  /* ── FILTERS ──────────────────────────────────── */
+  .controls {
+    display: flex; gap: 8px; align-items: center;
+    flex-wrap: wrap;
+    padding: 12px 0;
+    margin-bottom: 4px;
+  }
+  .filter-btn {
+    font-size: 11px; padding: 5px 14px;
+    border-radius: 20px;
+    border: 0.5px solid rgba(201,168,76,0.25);
+    background: transparent; color: var(--text-light);
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+  .filter-btn.active {
+    background: rgba(201,168,76,0.15);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
+  .search-wrap { margin-left: auto; position: relative; }
+  .search-icon {
+    position: absolute; left: 9px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 13px; color: var(--text-light);
+    pointer-events: none;
+  }
+  #search {
+    font-size: 12px; padding: 5px 10px 5px 28px;
+    border-radius: 20px;
+    border: 0.5px solid rgba(201,168,76,0.25);
+    background: rgba(255,255,255,0.05);
+    color: var(--cream); width: 150px;
+    font-family: 'Inter', sans-serif; outline: none;
+  }
+  #search:focus { border-color: var(--gold); }
+  #search::placeholder { color: var(--text-light); }
+
+  /* ── MOVIE ROWS ───────────────────────────────── */
+  .movie-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 20px;
+    border-top: 0.5px solid rgba(255,255,255,0.05);
+    transition: background 0.1s;
+  }
+  .movie-row:first-child { border-top: none; }
+  .movie-row:hover { background: rgba(255,255,255,0.04); }
+  .movie-row.watched { opacity: 0.45; }
+  .check-btn {
+    width: 22px; height: 22px; border-radius: 50%;
+    border: 1.5px solid rgba(201,168,76,0.4);
+    background: transparent; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; color: transparent; font-size: 11px;
+    transition: all 0.15s;
+  }
+  .check-btn:hover { border-color: var(--gold); }
+  .check-btn.done {
+    background: var(--gold); border-color: var(--gold); color: var(--navy);
+  }
+  .movie-info { flex: 1; min-width: 0; }
+  .movie-title {
+    font-size: 14px; font-weight: 400;
+    color: var(--cream);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .movie-row.watched .movie-title { text-decoration: line-through; }
+  .movie-year { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+  .date-btn {
+    font-size: 11px; padding: 3px 10px;
+    border-radius: 8px;
+    border: 0.5px solid rgba(255,255,255,0.12);
+    background: transparent; color: var(--text-light);
+    cursor: pointer; flex-shrink: 0;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s; white-space: nowrap;
+  }
+  .date-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .date-btn.has-date {
+    background: rgba(201,168,76,0.1);
+    border-color: rgba(201,168,76,0.4);
+    color: var(--gold-light);
+  }
+  .date-picker-wrap {
+    display: none; padding: 8px 20px 10px 54px;
+    background: rgba(0,0,0,0.15);
+    border-top: 0.5px solid rgba(255,255,255,0.05);
+    align-items: center; gap: 10px;
+  }
+  .date-picker-wrap.open { display: flex; }
+  .date-picker-wrap input[type=date] {
+    font-size: 12px; padding: 4px 10px;
+    border-radius: 8px;
+    border: 0.5px solid rgba(201,168,76,0.3);
+    background: rgba(255,255,255,0.06);
+    color: var(--cream); font-family: 'Inter', sans-serif;
+    outline: none;
+  }
+  .date-picker-wrap input[type=date]:focus { border-color: var(--gold); }
+  .date-clear {
+    font-size: 11px; color: var(--text-light);
+    cursor: pointer; background: none; border: none;
+    font-family: 'Inter', sans-serif;
+  }
+  .date-clear:hover { color: var(--cream); }
+
+  .section-label {
+    padding: 8px 20px 6px;
+    font-size: 9px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--text-light);
+    border-top: 0.5px solid rgba(255,255,255,0.05);
+  }
+  .empty-state {
+    padding: 32px; text-align: center;
+    font-size: 13px; color: var(--text-light);
+    font-style: italic;
+  }
+
+  /* ── FRANCHISE LOGOS (SVG inline) ─────────────── */
+  .logo-disney path { fill: var(--cream); }
+  .logo-pixar path { fill: var(--cream); }
+  .logo-sw path { fill: var(--cream); }
+  .logo-marvel path { fill: var(--cream); }
+
+  /* ── PACE TRACKER ─────────────────────────────── */
+  .pace-card {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+  .pace-eyebrow {
+    font-size: 9px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .pace-week-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .pace-week-block {
+    border-radius: 10px;
+    border: 0.5px solid var(--border);
+    padding: 10px 10px 8px;
+    text-align: center;
+  }
+  .pace-week-block.is-current { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+  .pace-week-block.is-ahead { border-color: rgba(93,202,165,0.4); background: rgba(93,202,165,0.06); }
+  .pace-week-block.is-behind { border-color: rgba(226,75,74,0.4); background: rgba(226,75,74,0.06); }
+  .pace-week-label { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 2px; }
+  .pace-week-dates { font-size: 10px; color: var(--text-light); margin-bottom: 6px; }
+  .pace-week-films { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; line-height: 1; margin-bottom: 2px; color: var(--cream); }
+  .pace-week-block.is-current .pace-week-films { color: var(--gold-light); }
+  .pace-week-block.is-ahead .pace-week-films { color: var(--teal-light); }
+  .pace-week-block.is-behind .pace-week-films { color: #E24B4A; }
+  .pace-week-sub { font-size: 10px; color: var(--text-light); }
+  .pace-status-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 0.5px solid var(--border);
+    background: rgba(0,0,0,0.15);
+  }
+  .pace-status-icon { font-size: 18px; flex-shrink: 0; }
+  .pace-status-text { font-size: 12px; color: var(--text-light); line-height: 1.5; }
+  .pace-status-text strong { color: var(--cream); font-weight: 500; }
+
+  /* ── RESPONSIVE ───────────────────────────────── */
+  @media (max-width: 500px) {
+    .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+    .savings-card { flex-direction: column; }
+    .savings-right { align-items: flex-start; }
+    .hero-subtitle { font-size: 28px; }
+    .cd-num { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars-bg" id="stars-bg"></div>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <!-- Castle SVG -->
+    <svg class="castle-svg" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" aria-label="Cinderella Castle silhouette">
+      <g fill="#c9a84c" opacity="0.9">
+        <!-- Main tower -->
+        <rect x="52" y="30" width="16" height="55" rx="1"/>
+        <!-- Main tower spire -->
+        <polygon points="60,4 52,30 68,30"/>
+        <!-- Left tower -->
+        <rect x="28" y="48" width="12" height="37" rx="1"/>
+        <polygon points="34,30 28,48 40,48"/>
+        <!-- Right tower -->
+        <rect x="80" y="48" width="12" height="37" rx="1"/>
+        <polygon points="86,30 80,48 92,48"/>
+        <!-- Far left tower -->
+        <rect x="10" y="58" width="10" height="27" rx="1"/>
+        <polygon points="15,43 10,58 20,58"/>
+        <!-- Far right tower -->
+        <rect x="100" y="58" width="10" height="27" rx="1"/>
+        <polygon points="105,43 100,58 110,58"/>
+        <!-- Base / main building -->
+        <rect x="20" y="70" width="80" height="15" rx="1"/>
+        <!-- Arch entrance -->
+        <rect x="54" y="73" width="12" height="12" rx="3"/>
+        <!-- Windows main -->
+        <rect x="56" y="40" width="8" height="8" rx="1" fill="#0e2340"/>
+        <rect x="56" y="52" width="8" height="8" rx="1" fill="#0e2340"/>
+        <!-- Small windows -->
+        <rect x="31" y="56" width="6" height="6" rx="1" fill="#0e2340"/>
+        <rect x="83" y="56" width="6" height="6" rx="1" fill="#0e2340"/>
+        <!-- Ground line -->
+        <rect x="0" y="85" width="120" height="3" rx="1" opacity="0.5"/>
+        <!-- Battlements main tower -->
+        <rect x="52" y="28" width="3" height="5" rx="1"/>
+        <rect x="57" y="28" width="3" height="5" rx="1"/>
+        <rect x="62" y="28" width="3" height="5" rx="1"/>
+        <rect x="67" y="28" width="3" height="5" rx="1"/>
+        <!-- Battlements left -->
+        <rect x="28" y="46" width="2" height="4" rx="1"/>
+        <rect x="32" y="46" width="2" height="4" rx="1"/>
+        <rect x="36" y="46" width="2" height="4" rx="1"/>
+        <!-- Battlements right -->
+        <rect x="80" y="46" width="2" height="4" rx="1"/>
+        <rect x="84" y="46" width="2" height="4" rx="1"/>
+        <rect x="88" y="46" width="2" height="4" rx="1"/>
+        <!-- Stars on spire -->
+        <circle cx="60" cy="2" r="1.5" fill="white" opacity="0.9"/>
+      </g>
+    </svg>
+
+    <div class="hero-title">Walt Disney World Resort</div>
+    <div class="hero-subtitle">Our Disney Adventure</div>
+    <div class="hero-sub2">January 10 – 15, 2027 &nbsp;·&nbsp; Art of Animation Resort</div>
+    <div class="hero-names">Aaron & Lauren</div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="countdown-card">
+    <div class="countdown-grid">
+      <div class="cd-block"><div class="cd-num" id="cd-days">—</div><div class="cd-label">Days</div></div>
+      <div class="cd-block"><div class="cd-num" id="cd-weeks">—</div><div class="cd-label">Weeks</div></div>
+      <div class="cd-block"><div class="cd-num" id="cd-months">—</div><div class="cd-label">Months</div></div>
+      <div class="cd-block"><div class="cd-num" id="cd-pace">—</div><div class="cd-label">Days / film</div></div>
+    </div>
+    <div class="sleeps-line" id="sleeps">Loading...</div>
+    <div class="progress-label-row">
+      <span id="prog-label">0 of 60 watched</span>
+      <span id="prog-pct">0%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill fill-gold" id="prog-fill" style="width:0%"></div>
+    </div>
+  </div>
+
+  <!-- SAVINGS -->
+  <div class="savings-card">
+    <div class="savings-left">
+      <div class="savings-eyebrow">Trip savings</div>
+      <div class="savings-amount" id="savings-display">$0.00</div>
+      <div class="savings-goal-text" id="savings-goal-text">$0.00 of $2,847.94 saved</div>
+      <div class="progress-track" style="background:rgba(255,255,255,0.08); margin-bottom:10px;">
+        <div class="progress-fill fill-teal" id="savings-fill" style="width:0%"></div>
+      </div>
+      <div id="savings-history"></div>
+    </div>
+    <div class="savings-right">
+      <div class="savings-input-wrap">
+        <input type="number" id="savings-input" placeholder="$0.00" min="0" step="0.01" />
+        <button class="btn-add" id="savings-add-btn">+ Add</button>
+      </div>
+      <button class="btn-reset" id="savings-reset-btn">Reset</button>
+    </div>
+  </div>
+
+  <!-- PACE TRACKER -->
+  <div class="pace-card">
+    <div class="pace-eyebrow">&#127916; Weekly watch pace</div>
+    <div class="pace-week-grid" id="pace-week-grid">
+      <div class="pace-week-block"><div class="pace-week-label">Loading...</div></div>
+    </div>
+    <div class="pace-status-row" id="pace-status-row">
+      <span class="pace-status-icon">&#8987;</span>
+      <span class="pace-status-text">Calculating your pace...</span>
+    </div>
+  </div>
+
+  <!-- SYNC BAR -->
+  <div class="sync-bar">
+    <div><span class="sync-dot loading" id="sync-dot"></span><span id="sync-label">Connecting...</span></div>
+    <button class="btn-sync" id="manual-sync-btn">&#8635; Sync now</button>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="controls">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="unwatched">Unwatched</button>
+    <button class="filter-btn" data-filter="watched">Watched</button>
+    <button class="filter-btn" data-filter="scheduled">Scheduled</button>
+    <div class="search-wrap">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" id="search" placeholder="Search films..." />
+    </div>
+  </div>
+
+  <!-- MOVIE LIST -->
+  <div id="list-wrap"></div>
+
+</div>
+
+<script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNx4Y4XxqgLvC8HpTDwuHnT1H2QR_kvbQkXU1HQqKK0k0z3NRlBPsiIJQrXki5x-Cq/exec';
+const GOAL = 2847.94;
+const TRIP = new Date('2027-01-10T00:00:00');
+
+const MOVIES = [
+  {t:"Snow White and the Seven Dwarfs",y:1937,f:"Disney"},
+  {t:"Pinocchio",y:1940,f:"Disney"},
+  {t:"Dumbo",y:1941,f:"Disney"},
+  {t:"Bambi",y:1942,f:"Disney"},
+  {t:"Cinderella",y:1950,f:"Disney"},
+  {t:"Alice in Wonderland",y:1951,f:"Disney"},
+  {t:"Peter Pan",y:1953,f:"Disney"},
+  {t:"Lady and the Tramp",y:1955,f:"Disney"},
+  {t:"Sleeping Beauty",y:1959,f:"Disney"},
+  {t:"101 Dalmatians",y:1961,f:"Disney"},
+  {t:"The Many Adventures of Winnie the Pooh",y:1977,f:"Disney"},
+  {t:"The Fox and the Hound",y:1981,f:"Disney"},
+  {t:"The Little Mermaid",y:1989,f:"Disney"},
+  {t:"Beauty and the Beast",y:1991,f:"Disney"},
+  {t:"Aladdin",y:1992,f:"Disney"},
+  {t:"The Lion King",y:1994,f:"Disney"},
+  {t:"Pocahontas",y:1995,f:"Disney"},
+  {t:"Hercules",y:1997,f:"Disney"},
+  {t:"Mulan",y:1998,f:"Disney"},
+  {t:"Tarzan",y:1999,f:"Disney"},
+  {t:"The Emperor's New Groove",y:2000,f:"Disney"},
+  {t:"Atlantis: The Lost Empire",y:2001,f:"Disney"},
+  {t:"Lilo & Stitch",y:2002,f:"Disney"},
+  {t:"The Princess and the Frog",y:2009,f:"Disney"},
+  {t:"Tangled",y:2010,f:"Disney"},
+  {t:"Wreck-It Ralph",y:2012,f:"Disney"},
+  {t:"Frozen",y:2013,f:"Disney"},
+  {t:"Big Hero 6",y:2014,f:"Disney"},
+  {t:"Zootopia",y:2016,f:"Disney"},
+  {t:"Moana",y:2016,f:"Disney"},
+  {t:"Ralph Breaks the Internet",y:2018,f:"Disney"},
+  {t:"Frozen II",y:2019,f:"Disney"},
+  {t:"Raya and the Last Dragon",y:2021,f:"Disney"},
+  {t:"Encanto",y:2021,f:"Disney"},
+  {t:"Moana 2",y:2024,f:"Disney"},
+  {t:"Zootopia 2",y:2025,f:"Disney"},
+  {t:"Toy Story",y:1995,f:"Pixar"},
+  {t:"Toy Story 2",y:1999,f:"Pixar"},
+  {t:"Monsters, Inc.",y:2001,f:"Pixar"},
+  {t:"Finding Nemo",y:2003,f:"Pixar"},
+  {t:"The Incredibles",y:2004,f:"Pixar"},
+  {t:"Cars",y:2006,f:"Pixar"},
+  {t:"Up",y:2009,f:"Pixar"},
+  {t:"Toy Story 3",y:2010,f:"Pixar"},
+  {t:"Inside Out",y:2015,f:"Pixar"},
+  {t:"Incredibles 2",y:2018,f:"Pixar"},
+  {t:"Toy Story 4",y:2019,f:"Pixar"},
+  {t:"Inside Out 2",y:2024,f:"Pixar"},
+  {t:"A New Hope",y:1977,f:"Star Wars"},
+  {t:"The Empire Strikes Back",y:1980,f:"Star Wars"},
+  {t:"Return of the Jedi",y:1983,f:"Star Wars"},
+  {t:"The Force Awakens",y:2015,f:"Star Wars"},
+  {t:"The Last Jedi",y:2017,f:"Star Wars"},
+  {t:"The Rise of Skywalker",y:2019,f:"Star Wars"},
+  {t:"The Avengers",y:2012,f:"Marvel"},
+  {t:"Avengers: Age of Ultron",y:2015,f:"Marvel"},
+  {t:"Avengers: Infinity War",y:2018,f:"Marvel"},
+  {t:"Avengers: Endgame",y:2019,f:"Marvel"},
+];
+
+const FRANCHISE_CONFIG = {
+  "Disney": {
+    color: "#dce8f5", textColor: "#0c447c",
+    headerBg: "rgba(14,35,64,0.6)",
+    logo: `<svg viewBox="0 0 200 50" height="28" xmlns="http://www.w3.org/2000/svg" aria-label="Disney">
+      <text x="10" y="38" font-family="Playfair Display, Georgia, serif" font-size="38" font-weight="600" fill="#f5e8c0" font-style="italic">Disney</text>
+    </svg>`
+  },
+  "Pixar": {
+    color: "#e1f5ee", textColor: "#085041",
+    headerBg: "rgba(4,52,44,0.4)",
+    logo: `<svg viewBox="0 0 160 50" height="26" xmlns="http://www.w3.org/2000/svg" aria-label="Pixar">
+      <text x="8" y="37" font-family="Georgia, serif" font-size="34" font-weight="400" fill="#9FE1CB" letter-spacing="4">PIXAR</text>
+    </svg>`
+  },
+  "Star Wars": {
+    color: "#faeeda", textColor: "#633806",
+    headerBg: "rgba(10,10,10,0.7)",
+    logo: `<svg viewBox="0 0 220 50" height="26" xmlns="http://www.w3.org/2000/svg" aria-label="Star Wars">
+      <text x="8" y="36" font-family="Georgia, serif" font-size="28" font-weight="600" fill="#FAC775" letter-spacing="3">STAR WARS</text>
+    </svg>`
+  },
+  "Marvel": {
+    color: "#fcebeb", textColor: "#791f1f",
+    headerBg: "rgba(60,0,0,0.5)",
+    logo: `<svg viewBox="0 0 180 50" height="26" xmlns="http://www.w3.org/2000/svg" aria-label="Marvel">
+      <rect x="4" y="8" width="172" height="36" rx="4" fill="#E24B4A"/>
+      <text x="90" y="35" font-family="Arial Black, sans-serif" font-size="26" font-weight="900" fill="white" text-anchor="middle" letter-spacing="2">MARVEL</text>
+    </svg>`
+  }
+};
+
+// ── STARS ──────────────────────────────────────────
+(function() {
+  const bg = document.getElementById('stars-bg');
+  for (let i = 0; i < 120; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      --dur:${2+Math.random()*4}s;
+      --delay:${-Math.random()*5}s;
+      --min-op:${0.1+Math.random()*0.3};
+      --max-op:${0.6+Math.random()*0.4};
+    `;
+    bg.appendChild(s);
+  }
+})();
+
+// ── STATE ──────────────────────────────────────────
+let movieState = {};
+let savingsTotal = 0;
+let savingsEntries = [];
+let currentFilter = 'all';
+let currentSearch = '';
+let writeTimer = null;
+let pendingWrites = [];
+
+// ── SYNC ───────────────────────────────────────────
+function setSyncStatus(state, msg) {
+  document.getElementById('sync-dot').className = 'sync-dot ' + state;
+  document.getElementById('sync-label').textContent = msg;
+}
+
+async function apiFetch(payload) {
+  const res = await fetch(SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) });
+  return res.json();
+}
+
+async function loadFromSheet() {
+  setSyncStatus('loading', 'Syncing with Google Sheets...');
+  try {
+    const res = await fetch(SCRIPT_URL + '?app=disney');
+    const data = await res.json();
+    if (data.status === 'empty') {
+      await apiFetch({ app: 'disney', action: 'init', movies: MOVIES });
+      setSyncStatus('ok', 'Sheet initialized');
+      render(); return;
+    }
+    movieState = {};
+    (data.data || []).slice(1).forEach(row => {
+      if (!row[0]) return;
+      movieState[row[0]] = { watched: row[3] === 'TRUE', date: row[4] || '' };
+    });
+    savingsTotal = parseFloat(data.savingsTotal) || 0;
+    try { savingsEntries = JSON.parse(data.savingsEntries) || []; } catch(e) { savingsEntries = []; }
+    setSyncStatus('ok', 'Synced · ' + new Date().toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'}));
+    updateCountdown();
+    updateSavingsUI();
+    render();
+  } catch(e) {
+    setSyncStatus('err', 'Connection failed — check your network');
+  }
+}
+
+function queueWrite(payload) {
+  pendingWrites.push(payload);
+  if (writeTimer) clearTimeout(writeTimer);
+  writeTimer = setTimeout(async () => {
+    const batch = pendingWrites.splice(0);
+    setSyncStatus('loading', 'Saving...');
+    try {
+      for (const p of batch) await apiFetch(p);
+      setSyncStatus('ok', 'Saved · ' + new Date().toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'}));
+    } catch(e) { setSyncStatus('err', 'Save failed'); }
+  }, 600);
+}
+
+// ── COUNTDOWN ──────────────────────────────────────
+function updateCountdown() {
+  const now = new Date();
+  const diff = TRIP - now;
+  const days = diff > 0 ? Math.ceil(diff / 86400000) : 0;
+  document.getElementById('cd-days').textContent = days;
+  document.getElementById('cd-weeks').textContent = Math.floor(days / 7);
+  document.getElementById('cd-months').textContent = Math.floor(days / 30.44);
+  const watched = MOVIES.filter(m => (movieState[m.t] || {}).watched).length;
+  const remaining = MOVIES.length - watched;
+  document.getElementById('cd-pace').textContent = remaining > 0 ? Math.round(days / remaining) : '—';
+  document.getElementById('sleeps').textContent = days > 0 ? days + ' sleeps until the magic begins' : "The magic is here!";
+  const pct = Math.round((watched / MOVIES.length) * 100);
+  document.getElementById('prog-label').textContent = watched + ' of ' + MOVIES.length + ' watched';
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-fill').style.width = pct + '%';
+  updatePaceTracker();
+}
+
+// ── PACE TRACKER ───────────────────────────────────
+function updatePaceTracker() {
+  const START = new Date('2026-06-14T00:00:00'); // first Sunday
+  const now = new Date();
+
+  // snap now to start of today
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  // find the Monday that starts the current ISO-ish week (we use Sunday-start weeks)
+  const dayOfWeek = today.getDay(); // 0=Sun
+  const currentWeekSunday = new Date(today);
+  currentWeekSunday.setDate(today.getDate() - dayOfWeek);
+
+  const watched = MOVIES.filter(m => (movieState[m.t] || {}).watched).length;
+  const total = MOVIES.length;
+  const remaining = total - watched;
+
+  // weeks elapsed since start (full weeks)
+  const msPerWeek = 7 * 86400000;
+  const weeksElapsed = Math.max(0, Math.floor((today - START) / msPerWeek));
+
+  // target: watch all 60 films by Jan 9 2027 (day before trip)
+  const END = new Date('2027-01-09T00:00:00');
+  const totalWeeks = Math.ceil((END - START) / msPerWeek); // ~29 weeks
+  const weeksRemaining = Math.max(0, Math.ceil((END - today) / msPerWeek));
+
+  // ideal watched count by now
+  const idealPerWeek = total / totalWeeks;
+  const idealWatchedByNow = Math.min(total, Math.round(idealPerWeek * (weeksElapsed + 1)));
+
+  // this week's window
+  const thisWeekEnd = new Date(currentWeekSunday);
+  thisWeekEnd.setDate(currentWeekSunday.getDate() + 6);
+
+  // build 3 week blocks: last week, this week, next week
+  const weeks = [-1, 0, 1].map(offset => {
+    const sun = new Date(currentWeekSunday);
+    sun.setDate(currentWeekSunday.getDate() + offset * 7);
+    const sat = new Date(sun);
+    sat.setDate(sun.getDate() + 6);
+
+    const weekNum = weeksElapsed + offset + 1;
+    const idealByEndOfWeek = Math.min(total, Math.round(idealPerWeek * weekNum));
+    const idealByStartOfWeek = Math.min(total, Math.round(idealPerWeek * (weekNum - 1)));
+    const targetThisWeek = Math.max(2, idealByEndOfWeek - idealByStartOfWeek);
+
+    const fmt = d => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    return {
+      label: offset === -1 ? 'Last week' : offset === 0 ? 'This week' : 'Next week',
+      dates: fmt(sun) + ' – ' + fmt(sat),
+      target: targetThisWeek,
+      isCurrent: offset === 0,
+      weekNum
+    };
+  });
+
+  // render week blocks
+  const grid = document.getElementById('pace-week-grid');
+  grid.innerHTML = weeks.map(w => {
+    let statusClass = '';
+    let subText = w.target + ' films to stay on pace';
+    if (w.isCurrent) {
+      statusClass = 'is-current';
+      subText = 'target this week';
+    }
+    return `
+      <div class="pace-week-block ${statusClass}">
+        <div class="pace-week-label">${w.label}</div>
+        <div class="pace-week-dates">${w.dates}</div>
+        <div class="pace-week-films">${w.target}</div>
+        <div class="pace-week-sub">${subText}</div>
+      </div>`;
+  }).join('');
+
+  // overall status message
+  const statusRow = document.getElementById('pace-status-row');
+  const diff = watched - idealWatchedByNow;
+  const neededPerWeek = weeksRemaining > 0 ? Math.ceil(remaining / weeksRemaining) : remaining;
+
+  let icon, html;
+  if (watched === total) {
+    icon = '&#127775;';
+    html = `<strong>All ${total} films watched!</strong> You're ready for the magic.`;
+  } else if (diff >= 2) {
+    icon = '&#9989;';
+    html = `<strong>Ahead of pace by ${diff} film${diff !== 1 ? 's' : ''}.</strong> You need about <strong>${neededPerWeek} film${neededPerWeek !== 1 ? 's' : ''}/week</strong> to finish all ${remaining} remaining by January 9th.`;
+  } else if (diff >= -1) {
+    icon = '&#128994;';
+    html = `<strong>Right on track.</strong> Aim for <strong>${neededPerWeek} film${neededPerWeek !== 1 ? 's' : ''}/week</strong> to finish all ${remaining} remaining films before the trip.`;
+  } else {
+    const catchUp = Math.abs(diff);
+    icon = '&#128308;';
+    html = `<strong>Behind by ${catchUp} film${catchUp !== 1 ? 's' : ''}.</strong> Watch <strong>${neededPerWeek} film${neededPerWeek !== 1 ? 's' : ''}/week</strong> to get through all ${remaining} remaining before January 9th.`;
+  }
+
+  statusRow.innerHTML = `<span class="pace-status-icon">${icon}</span><span class="pace-status-text">${html}</span>`;
+}
+
+// ── SAVINGS ────────────────────────────────────────
+function updateSavingsUI() {
+  const pct = Math.min(100, (savingsTotal / GOAL) * 100);
+  document.getElementById('savings-display').textContent = '$' + savingsTotal.toFixed(2);
+  document.getElementById('savings-goal-text').textContent = '$' + savingsTotal.toFixed(2) + ' of $2,847.94 saved';
+  document.getElementById('savings-fill').style.width = pct.toFixed(1) + '%';
+  const hist = document.getElementById('savings-history');
+  const recent = savingsEntries.slice(-4).reverse();
+  hist.innerHTML = recent.map((e, i) =>
+    `<div class="savings-history-item"><span>${e.label}</span><button onclick="removeEntry(${savingsEntries.length - 1 - i})" aria-label="Remove entry">&#10005;</button></div>`
+  ).join('');
+}
+
+function removeEntry(idx) {
+  if (!savingsEntries[idx]) return;
+  savingsTotal = Math.max(0, savingsTotal - savingsEntries[idx].amount);
+  savingsEntries.splice(idx, 1);
+  updateSavingsUI();
+  queueWrite({ app: 'disney', action: 'updateSavings', total: savingsTotal.toFixed(2), entries: savingsEntries });
+}
+
+document.getElementById('savings-add-btn').addEventListener('click', () => {
+  const input = document.getElementById('savings-input');
+  const val = parseFloat(input.value);
+  if (!val || val <= 0) return;
+  const label = '$' + val.toFixed(2) + ' · ' + new Date().toLocaleDateString('en-US', {month:'short', day:'numeric'});
+  savingsTotal += val;
+  savingsEntries.push({ amount: val, label });
+  input.value = '';
+  updateSavingsUI();
+  queueWrite({ app: 'disney', action: 'updateSavings', total: savingsTotal.toFixed(2), entries: savingsEntries });
+});
+
+document.getElementById('savings-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('savings-add-btn').click();
+});
+
+document.getElementById('savings-reset-btn').addEventListener('click', () => {
+  if (confirm('Reset savings to $0?')) {
+    savingsTotal = 0; savingsEntries = [];
+    updateSavingsUI();
+    queueWrite({ app: 'disney', action: 'updateSavings', total: '0', entries: [] });
+  }
+});
+
+document.getElementById('manual-sync-btn').addEventListener('click', loadFromSheet);
+
+// ── FILTERS ────────────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    render();
+  });
+});
+document.getElementById('search').addEventListener('input', e => {
+  currentSearch = e.target.value;
+  render();
+});
+
+// ── RENDER ─────────────────────────────────────────
+function render() {
+  const wrap = document.getElementById('list-wrap');
+  wrap.innerHTML = '';
+  const search = currentSearch.toLowerCase();
+
+  const filtered = MOVIES.filter(m => {
+    const ms = movieState[m.t] || {};
+    if (search && !m.t.toLowerCase().includes(search)) return false;
+    if (currentFilter === 'unwatched') return !ms.watched;
+    if (currentFilter === 'watched') return ms.watched;
+    if (currentFilter === 'scheduled') return ms.date && !ms.watched;
+    return true;
+  });
+
+  const franchises = ['Disney','Pixar','Star Wars','Marvel'];
+  let anyVisible = false;
+
+  franchises.forEach(franchise => {
+    const group = filtered.filter(m => m.f === franchise);
+    if (!group.length) return;
+    anyVisible = true;
+    const cfg = FRANCHISE_CONFIG[franchise];
+    const watchedCount = group.filter(m => (movieState[m.t]||{}).watched).length;
+
+    const section = document.createElement('div');
+    section.className = 'franchise-section';
+
+    const body = document.createElement('div');
+    body.className = 'franchise-body';
+
+    // header
+    const header = document.createElement('div');
+    header.className = 'franchise-header';
+    header.style.background = cfg.headerBg;
+    header.innerHTML = `
+      ${cfg.logo}
+      <span class="franchise-count">${watchedCount}/${group.length} watched</span>
+      <span class="franchise-chevron open">&#8964;</span>
+    `;
+
+    let collapsed = false;
+    header.addEventListener('click', () => {
+      collapsed = !collapsed;
+      body.style.display = collapsed ? 'none' : 'block';
+      header.querySelector('.franchise-chevron').classList.toggle('open', !collapsed);
+    });
+
+    section.appendChild(header);
+    section.appendChild(body);
+
+    group.forEach(movie => {
+      const ms = movieState[movie.t] || {};
+      const safeId = movie.t.replace(/[^a-z0-9]/gi,'_');
+
+      const row = document.createElement('div');
+      row.className = 'movie-row' + (ms.watched ? ' watched' : '');
+      row.innerHTML = `
+        <button class="check-btn${ms.watched ? ' done' : ''}" data-title="${movie.t}" aria-label="${ms.watched ? 'Unmark' : 'Mark'} ${movie.t} as watched">
+          ${ms.watched ? '&#10003;' : ''}
+        </button>
+        <div class="movie-info">
+          <div class="movie-title">${movie.t}</div>
+          <div class="movie-year">${movie.y}</div>
+        </div>
+        <button class="date-btn${ms.date ? ' has-date' : ''}" data-title="${movie.t}">
+          ${ms.date ? ms.date : '&#128197;'}
+        </button>
+      `;
+      body.appendChild(row);
+
+      const picker = document.createElement('div');
+      picker.className = 'date-picker-wrap';
+      picker.id = 'picker-' + safeId;
+      picker.innerHTML = `
+        <span style="font-size:12px;color:var(--text-light);">Watch date:</span>
+        <input type="date" value="${ms.date || ''}" data-title="${movie.t}" />
+        <button class="date-clear" data-title="${movie.t}">Clear</button>
+      `;
+      body.appendChild(picker);
+    });
+
+    wrap.appendChild(section);
+  });
+
+  if (!anyVisible) {
+    wrap.innerHTML = '<div class="empty-state">No films match your search.</div>';
+  }
+
+  // ── EVENT LISTENERS ────────────────────────────
+  wrap.querySelectorAll('.check-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const t = btn.dataset.title;
+      if (!movieState[t]) movieState[t] = {};
+      movieState[t].watched = !movieState[t].watched;
+      updateCountdown(); render();
+      queueWrite({ app: 'disney', action: 'updateMovie', title: t, watched: movieState[t].watched, date: movieState[t].date || '' });
+    });
+  });
+
+  wrap.querySelectorAll('.date-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const safeId = btn.dataset.title.replace(/[^a-z0-9]/gi,'_');
+      const pickerEl = document.getElementById('picker-' + safeId);
+      if (!pickerEl) return;
+      const isOpen = pickerEl.classList.contains('open');
+      document.querySelectorAll('.date-picker-wrap.open').forEach(p => p.classList.remove('open'));
+      if (!isOpen) pickerEl.classList.add('open');
+    });
+  });
+
+  wrap.querySelectorAll('.date-picker-wrap input[type=date]').forEach(input => {
+    input.addEventListener('change', () => {
+      const t = input.dataset.title;
+      if (!movieState[t]) movieState[t] = {};
+      movieState[t].date = input.value;
+      render();
+      queueWrite({ app: 'disney', action: 'updateMovie', title: t, watched: (movieState[t]||{}).watched || false, date: input.value });
+    });
+  });
+
+  wrap.querySelectorAll('.date-clear').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const t = btn.dataset.title;
+      if (movieState[t]) movieState[t].date = '';
+      render();
+      queueWrite({ app: 'disney', action: 'updateMovie', title: t, watched: (movieState[t]||{}).watched || false, date: '' });
+    });
+  });
+}
+
+// ── INIT ───────────────────────────────────────────
+updateCountdown();
+updatePaceTracker();
+render();
+loadFromSheet();
+setInterval(updateCountdown, 60000);
+</script>
+</body>
+</html>
