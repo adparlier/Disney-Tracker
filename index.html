@@ -13,7 +13,6 @@
     --gold: #c9a84c;
     --gold-light: #e8c96a;
     --cream: #fdf6e3;
-    --cream-dark: #f0e6c8;
     --teal: #3d9e7a;
     --teal-light: #5DCAA5;
     --text-light: #8a9ab5;
@@ -22,32 +21,18 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Inter', sans-serif; background: var(--cream); color: #1a1a2e; min-height: 100vh; }
-
-  .stars-bg {
-    position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
-    background: linear-gradient(160deg, var(--navy) 0%, #0a1628 60%, #141030 100%);
-  }
-  .star {
-    position: absolute; border-radius: 50%; background: white;
-    animation: twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s);
-  }
-  @keyframes twinkle {
-    0%, 100% { opacity: var(--min-op, 0.3); transform: scale(1); }
-    50% { opacity: var(--max-op, 1); transform: scale(1.3); }
-  }
-
+  .stars-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; background: linear-gradient(160deg, var(--navy) 0%, #0a1628 60%, #141030 100%); }
+  .star { position: absolute; border-radius: 50%; background: white; animation: twinkle var(--dur, 3s) ease-in-out infinite var(--delay, 0s); }
+  @keyframes twinkle { 0%, 100% { opacity: var(--min-op, 0.3); transform: scale(1); } 50% { opacity: var(--max-op, 1); transform: scale(1.3); } }
   .page-wrap { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; padding: 0 16px 80px; }
-
   .hero { text-align: center; padding: 48px 24px 32px; }
-  .castle-svg { width: 120px; height: auto; margin: 0 auto 16px; opacity: 0.95; }
-  .hero-title { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .castle-svg { width: 120px; height: auto; margin: 0 auto 16px; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
   .hero-subtitle { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; color: var(--cream); line-height: 1.2; margin-bottom: 6px; }
-  .hero-sub2 { font-size: 13px; color: var(--text-light); letter-spacing: 0.05em; margin-bottom: 4px; }
+  .hero-sub2 { font-size: 13px; color: var(--text-light); margin-bottom: 4px; }
   .hero-names { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: var(--gold-light); }
-
   .card { background: rgba(255,255,255,0.04); border: 0.5px solid var(--border); border-radius: 16px; padding: 20px 24px; margin-bottom: 12px; }
   .eyebrow { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-
   .countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
   .cd-block { background: rgba(201,168,76,0.08); border: 0.5px solid rgba(201,168,76,0.25); border-radius: 12px; padding: 14px 8px; text-align: center; }
   .cd-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 600; color: var(--gold-light); line-height: 1; }
@@ -58,39 +43,32 @@
   .progress-fill { height: 100%; border-radius: 6px; transition: width 0.5s ease; }
   .fill-gold { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
   .fill-teal { background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
-
-  /* SAVINGS */
   .savings-inner { display: flex; gap: 20px; align-items: flex-start; }
   .savings-left { flex: 1; }
   .savings-amount { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 600; color: var(--teal-light); line-height: 1; margin-bottom: 4px; }
   .savings-goal-text { font-size: 11px; color: var(--text-light); margin-bottom: 12px; }
   .savings-history-item { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--text-light); padding: 3px 0; border-bottom: 0.5px solid rgba(255,255,255,0.06); }
   .savings-history-item:last-child { border-bottom: none; }
-  .savings-history-item button { background: none; border: none; color: rgba(255,255,255,0.3); cursor: pointer; font-size: 12px; padding: 0 4px; }
+  .savings-history-item button { background: none; border: none; color: rgba(255,255,255,0.3); cursor: pointer; font-size: 12px; }
   .savings-right { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; padding-top: 4px; }
   .savings-input-wrap { display: flex; gap: 6px; }
   .savings-input-wrap input { width: 100px; font-size: 13px; padding: 7px 10px; border-radius: 8px; border: 0.5px solid rgba(93,202,165,0.3); background: rgba(255,255,255,0.06); color: var(--cream); outline: none; font-family: 'Inter', sans-serif; }
   .savings-input-wrap input::placeholder { color: rgba(255,255,255,0.3); }
-  .savings-input-wrap input:focus { border-color: var(--teal-light); }
   .btn-add { font-size: 12px; padding: 7px 14px; border-radius: 8px; border: 0.5px solid var(--teal-light); background: transparent; color: var(--teal-light); cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s; }
   .btn-add:hover { background: var(--teal-light); color: #04342C; }
   .btn-reset { font-size: 11px; padding: 5px 10px; border-radius: 8px; border: 0.5px solid rgba(255,255,255,0.15); background: transparent; color: var(--text-light); cursor: pointer; font-family: 'Inter', sans-serif; }
-
-  /* PACE */
   .pace-week-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
-  .pace-week-block { border-radius: 10px; border: 0.5px solid var(--border); padding: 10px 10px 8px; text-align: center; }
+  .pace-week-block { border-radius: 10px; border: 0.5px solid var(--border); padding: 10px; text-align: center; }
   .pace-week-block.is-current { border-color: var(--gold); background: rgba(201,168,76,0.08); }
   .pace-week-label { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 2px; }
   .pace-week-dates { font-size: 10px; color: var(--text-light); margin-bottom: 6px; }
-  .pace-week-films { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; line-height: 1; margin-bottom: 2px; color: var(--cream); }
+  .pace-week-films { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--cream); line-height: 1; margin-bottom: 2px; }
   .pace-week-block.is-current .pace-week-films { color: var(--gold-light); }
   .pace-week-sub { font-size: 10px; color: var(--text-light); }
   .pace-status-row { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; border: 0.5px solid var(--border); background: rgba(0,0,0,0.15); }
   .pace-status-icon { font-size: 18px; flex-shrink: 0; }
   .pace-status-text { font-size: 12px; color: var(--text-light); line-height: 1.5; }
   .pace-status-text strong { color: var(--cream); font-weight: 500; }
-
-  /* SYNC */
   .sync-bar { display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; background: rgba(255,255,255,0.03); border: 0.5px solid var(--border); border-radius: 10px; margin-bottom: 12px; font-size: 11px; color: var(--text-light); }
   .sync-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 7px; background: #888; transition: background 0.3s; }
   .sync-dot.ok { background: var(--teal-light); }
@@ -98,76 +76,58 @@
   .sync-dot.loading { background: var(--gold); animation: pulse 1s ease-in-out infinite; }
   @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
   .btn-sync { font-size: 11px; background: none; border: none; color: var(--text-light); cursor: pointer; font-family: 'Inter', sans-serif; }
-  .btn-sync:hover { color: var(--cream); }
-
-  /* FILTERS */
   .controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 12px 0; margin-bottom: 4px; }
   .filter-btn { font-size: 11px; padding: 5px 14px; border-radius: 20px; border: 0.5px solid rgba(201,168,76,0.25); background: transparent; color: var(--text-light); cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s; }
   .filter-btn.active { background: rgba(201,168,76,0.15); border-color: var(--gold); color: var(--gold-light); }
   .search-wrap { margin-left: auto; position: relative; }
   .search-icon { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--text-light); pointer-events: none; }
   #search { font-size: 12px; padding: 5px 10px 5px 28px; border-radius: 20px; border: 0.5px solid rgba(201,168,76,0.25); background: rgba(255,255,255,0.05); color: var(--cream); width: 150px; font-family: 'Inter', sans-serif; outline: none; }
-  #search:focus { border-color: var(--gold); }
   #search::placeholder { color: var(--text-light); }
-
-  /* FRANCHISE */
   .franchise-section { margin-bottom: 16px; }
   .franchise-header { display: flex; align-items: center; gap: 12px; padding: 14px 20px 10px; cursor: pointer; user-select: none; }
   .franchise-count { margin-left: auto; font-size: 11px; color: var(--text-light); }
   .franchise-chevron { font-size: 12px; color: var(--text-light); transition: transform 0.2s; }
   .franchise-chevron.open { transform: rotate(180deg); }
   .franchise-body { background: rgba(255,255,255,0.03); border: 0.5px solid var(--border); border-radius: 14px; overflow: hidden; }
-
-  /* MOVIE ROWS */
   .movie-row { display: flex; align-items: center; gap: 12px; padding: 10px 20px; border-top: 0.5px solid rgba(255,255,255,0.05); transition: background 0.1s; }
   .movie-row:first-child { border-top: none; }
   .movie-row:hover { background: rgba(255,255,255,0.04); }
   .movie-row.watched { opacity: 0.45; }
   .check-btn { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid rgba(201,168,76,0.4); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: transparent; font-size: 11px; transition: all 0.15s; }
-  .check-btn:hover { border-color: var(--gold); }
   .check-btn.done { background: var(--gold); border-color: var(--gold); color: var(--navy); }
   .movie-info { flex: 1; min-width: 0; }
-  .movie-title { font-size: 14px; font-weight: 400; color: var(--cream); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .movie-title { font-size: 14px; color: var(--cream); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .movie-row.watched .movie-title { text-decoration: line-through; }
   .movie-year { font-size: 11px; color: var(--text-light); margin-top: 2px; }
   .date-btn { font-size: 11px; padding: 3px 10px; border-radius: 8px; border: 0.5px solid rgba(255,255,255,0.12); background: transparent; color: var(--text-light); cursor: pointer; flex-shrink: 0; font-family: 'Inter', sans-serif; transition: all 0.15s; white-space: nowrap; }
-  .date-btn:hover { border-color: var(--gold); color: var(--gold); }
   .date-btn.has-date { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.4); color: var(--gold-light); }
   .date-picker-wrap { display: none; padding: 8px 20px 10px 54px; background: rgba(0,0,0,0.15); border-top: 0.5px solid rgba(255,255,255,0.05); align-items: center; gap: 10px; }
   .date-picker-wrap.open { display: flex; }
   .date-picker-wrap input[type=date] { font-size: 12px; padding: 4px 10px; border-radius: 8px; border: 0.5px solid rgba(201,168,76,0.3); background: rgba(255,255,255,0.06); color: var(--cream); font-family: 'Inter', sans-serif; outline: none; }
   .date-clear { font-size: 11px; color: var(--text-light); cursor: pointer; background: none; border: none; font-family: 'Inter', sans-serif; }
   .empty-state { padding: 32px; text-align: center; font-size: 13px; color: var(--text-light); font-style: italic; }
-
   @media (max-width: 500px) {
     .countdown-grid { grid-template-columns: repeat(2, 1fr); }
     .savings-inner { flex-direction: column; }
     .savings-right { align-items: flex-start; }
     .hero-subtitle { font-size: 28px; }
     .cd-num { font-size: 28px; }
-    .pace-week-grid { grid-template-columns: repeat(1, 1fr); }
+    .pace-week-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
-
 <div class="stars-bg" id="stars-bg"></div>
-
 <div class="page-wrap">
 
   <div class="hero">
-    <svg class="castle-svg" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" aria-label="Cinderella Castle silhouette">
+    <svg class="castle-svg" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg">
       <g fill="#c9a84c" opacity="0.9">
-        <rect x="52" y="30" width="16" height="55" rx="1"/>
-        <polygon points="60,4 52,30 68,30"/>
-        <rect x="28" y="48" width="12" height="37" rx="1"/>
-        <polygon points="34,30 28,48 40,48"/>
-        <rect x="80" y="48" width="12" height="37" rx="1"/>
-        <polygon points="86,30 80,48 92,48"/>
-        <rect x="10" y="58" width="10" height="27" rx="1"/>
-        <polygon points="15,43 10,58 20,58"/>
-        <rect x="100" y="58" width="10" height="27" rx="1"/>
-        <polygon points="105,43 100,58 110,58"/>
+        <rect x="52" y="30" width="16" height="55" rx="1"/><polygon points="60,4 52,30 68,30"/>
+        <rect x="28" y="48" width="12" height="37" rx="1"/><polygon points="34,30 28,48 40,48"/>
+        <rect x="80" y="48" width="12" height="37" rx="1"/><polygon points="86,30 80,48 92,48"/>
+        <rect x="10" y="58" width="10" height="27" rx="1"/><polygon points="15,43 10,58 20,58"/>
+        <rect x="100" y="58" width="10" height="27" rx="1"/><polygon points="105,43 100,58 110,58"/>
         <rect x="20" y="70" width="80" height="15" rx="1"/>
         <rect x="54" y="73" width="12" height="12" rx="3"/>
         <rect x="56" y="40" width="8" height="8" rx="1" fill="#0e2340"/>
@@ -175,26 +135,20 @@
         <rect x="31" y="56" width="6" height="6" rx="1" fill="#0e2340"/>
         <rect x="83" y="56" width="6" height="6" rx="1" fill="#0e2340"/>
         <rect x="0" y="85" width="120" height="3" rx="1" opacity="0.5"/>
-        <rect x="52" y="28" width="3" height="5" rx="1"/>
-        <rect x="57" y="28" width="3" height="5" rx="1"/>
-        <rect x="62" y="28" width="3" height="5" rx="1"/>
-        <rect x="67" y="28" width="3" height="5" rx="1"/>
-        <rect x="28" y="46" width="2" height="4" rx="1"/>
-        <rect x="32" y="46" width="2" height="4" rx="1"/>
-        <rect x="36" y="46" width="2" height="4" rx="1"/>
-        <rect x="80" y="46" width="2" height="4" rx="1"/>
-        <rect x="84" y="46" width="2" height="4" rx="1"/>
-        <rect x="88" y="46" width="2" height="4" rx="1"/>
+        <rect x="52" y="28" width="3" height="5" rx="1"/><rect x="57" y="28" width="3" height="5" rx="1"/>
+        <rect x="62" y="28" width="3" height="5" rx="1"/><rect x="67" y="28" width="3" height="5" rx="1"/>
+        <rect x="28" y="46" width="2" height="4" rx="1"/><rect x="32" y="46" width="2" height="4" rx="1"/>
+        <rect x="36" y="46" width="2" height="4" rx="1"/><rect x="80" y="46" width="2" height="4" rx="1"/>
+        <rect x="84" y="46" width="2" height="4" rx="1"/><rect x="88" y="46" width="2" height="4" rx="1"/>
         <circle cx="60" cy="2" r="1.5" fill="white" opacity="0.9"/>
       </g>
     </svg>
     <div class="hero-title">Walt Disney World Resort</div>
     <div class="hero-subtitle">Our Disney Adventure</div>
     <div class="hero-sub2">January 10 – 15, 2027 &nbsp;·&nbsp; Art of Animation Resort</div>
-    <div class="hero-names">Aaron & Lauren</div>
+    <div class="hero-names">Aaron &amp; Lauren</div>
   </div>
 
-  <!-- COUNTDOWN -->
   <div class="card">
     <div class="countdown-grid">
       <div class="cd-block"><div class="cd-num" id="cd-days">—</div><div class="cd-label">Days</div></div>
@@ -207,8 +161,7 @@
     <div class="progress-track"><div class="progress-fill fill-gold" id="prog-fill" style="width:0%"></div></div>
   </div>
 
-  <!-- SAVINGS -->
-  <div class="card" style="background:rgba(61,158,122,0.08); border-color:rgba(93,202,165,0.25);">
+  <div class="card" style="background:rgba(61,158,122,0.08);border-color:rgba(93,202,165,0.25);">
     <div class="eyebrow" style="color:var(--teal-light);">Trip savings</div>
     <div class="savings-inner">
       <div class="savings-left">
@@ -227,7 +180,6 @@
     </div>
   </div>
 
-  <!-- PACE -->
   <div class="card">
     <div class="eyebrow">&#127916; Weekly watch pace</div>
     <div class="pace-week-grid" id="pace-week-grid"></div>
@@ -237,13 +189,11 @@
     </div>
   </div>
 
-  <!-- SYNC BAR -->
   <div class="sync-bar">
     <div><span class="sync-dot loading" id="sync-dot"></span><span id="sync-label">Connecting...</span></div>
     <button class="btn-sync" id="manual-sync-btn">↻ Sync now</button>
   </div>
 
-  <!-- FILTERS -->
   <div class="controls">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="unwatched">Unwatched</button>
@@ -256,10 +206,10 @@
   </div>
 
   <div id="list-wrap"></div>
-
 </div>
 
 <script>
+// ── CONFIG ─────────────────────────────────────────────────────
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwGGyx3IiiLaU2ry0QvBobNu3bCFyCEbxTQZLlFuvi7u-aK9YiRrUWYf7EcgKpCJwUB/exec';
 const GOAL = 2847.94;
 const TRIP = new Date('2027-01-10T00:00:00');
@@ -326,19 +276,13 @@ const MOVIES = [
   {t:"Avengers: Endgame",y:2019,f:"Marvel"},
 ];
 
-const FRANCHISE_LOGOS = {
-  "Disney": `<svg viewBox="0 0 200 50" height="28" xmlns="http://www.w3.org/2000/svg"><text x="10" y="38" font-family="Playfair Display,Georgia,serif" font-size="38" font-weight="600" fill="#f5e8c0" font-style="italic">Disney</text></svg>`,
-  "Pixar": `<svg viewBox="0 0 160 50" height="26" xmlns="http://www.w3.org/2000/svg"><text x="8" y="37" font-family="Georgia,serif" font-size="34" fill="#9FE1CB" letter-spacing="4">PIXAR</text></svg>`,
+const LOGOS = {
+  Disney: `<svg viewBox="0 0 200 50" height="28" xmlns="http://www.w3.org/2000/svg"><text x="10" y="38" font-family="Playfair Display,Georgia,serif" font-size="38" font-weight="600" fill="#f5e8c0" font-style="italic">Disney</text></svg>`,
+  Pixar: `<svg viewBox="0 0 160 50" height="26" xmlns="http://www.w3.org/2000/svg"><text x="8" y="37" font-family="Georgia,serif" font-size="34" fill="#9FE1CB" letter-spacing="4">PIXAR</text></svg>`,
   "Star Wars": `<svg viewBox="0 0 220 50" height="26" xmlns="http://www.w3.org/2000/svg"><text x="8" y="36" font-family="Georgia,serif" font-size="28" font-weight="600" fill="#FAC775" letter-spacing="3">STAR WARS</text></svg>`,
-  "Marvel": `<svg viewBox="0 0 180 50" height="26" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="172" height="36" rx="4" fill="#E24B4A"/><text x="90" y="35" font-family="Arial Black,sans-serif" font-size="26" font-weight="900" fill="white" text-anchor="middle" letter-spacing="2">MARVEL</text></svg>`,
+  Marvel: `<svg viewBox="0 0 180 50" height="26" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="8" width="172" height="36" rx="4" fill="#E24B4A"/><text x="90" y="35" font-family="Arial Black,sans-serif" font-size="26" font-weight="900" fill="white" text-anchor="middle" letter-spacing="2">MARVEL</text></svg>`,
 };
-
-const FRANCHISE_BG = {
-  "Disney": "rgba(14,35,64,0.6)",
-  "Pixar": "rgba(4,52,44,0.4)",
-  "Star Wars": "rgba(10,10,10,0.7)",
-  "Marvel": "rgba(60,0,0,0.5)",
-};
+const HEADER_BG = { Disney:"rgba(14,35,64,0.6)", Pixar:"rgba(4,52,44,0.4)", "Star Wars":"rgba(10,10,10,0.7)", Marvel:"rgba(60,0,0,0.5)" };
 
 // ── STATE ──────────────────────────────────────────────────────
 let movieState = {};
@@ -350,35 +294,26 @@ let writeTimer = null;
 let pendingWrites = [];
 
 // ── STARS ──────────────────────────────────────────────────────
-(function() {
+(function(){
   const bg = document.getElementById('stars-bg');
-  for (let i = 0; i < 120; i++) {
-    const s = document.createElement('div');
-    s.className = 'star';
-    const size = Math.random() * 2.5 + 0.5;
-    s.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--delay:${-Math.random()*5}s;--min-op:${0.1+Math.random()*0.3};--max-op:${0.6+Math.random()*0.4};`;
+  for(let i=0;i<120;i++){
+    const s=document.createElement('div'); s.className='star';
+    const sz=Math.random()*2.5+0.5;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--dur:${2+Math.random()*4}s;--delay:${-Math.random()*5}s;--min-op:${0.1+Math.random()*0.3};--max-op:${0.6+Math.random()*0.4};`;
     bg.appendChild(s);
   }
 })();
 
-// ── SYNC ───────────────────────────────────────────────────────
+// ── API ────────────────────────────────────────────────────────
 function setSyncStatus(state, msg) {
   document.getElementById('sync-dot').className = 'sync-dot ' + state;
   document.getElementById('sync-label').textContent = msg;
 }
 
-// All writes go as GET requests with flat params — avoids CORS entirely
-async function postToSheet(payload) {
-  const flat = { app: payload.app };
-  flat.action = payload.action;
-  if (payload.title !== undefined) flat.title = payload.title;
-  if (payload.watched !== undefined) flat.watched = String(payload.watched);
-  if (payload.date !== undefined) flat.date = payload.date;
-  if (payload.total !== undefined) flat.total = payload.total;
-  if (payload.entries !== undefined) flat.entries = JSON.stringify(payload.entries);
-  if (payload.movies !== undefined) flat.movies = JSON.stringify(payload.movies);
-  const params = new URLSearchParams(flat);
-  const res = await fetch(SCRIPT_URL + '?' + params.toString());
+// All requests go as plain GET with flat URL params — no CORS issues
+async function sheetGet(params) {
+  const url = SCRIPT_URL + '?' + new URLSearchParams(params).toString();
+  const res = await fetch(url);
   const text = await res.text();
   try { return JSON.parse(text); } catch(e) { return { status: 'error', message: text }; }
 }
@@ -386,39 +321,42 @@ async function postToSheet(payload) {
 async function loadFromSheet() {
   setSyncStatus('loading', 'Syncing...');
   try {
-    const res = await fetch(SCRIPT_URL + '?app=disney');
-    const text = await res.text();
-    const data = JSON.parse(text);
-
+    const data = await sheetGet({ app: 'disney' });
     if (data.status === 'empty') {
       setSyncStatus('loading', 'Initializing sheet...');
-      await postToSheet({ app: 'disney', action: 'init', movies: MOVIES });
-      setSyncStatus('ok', 'Sheet initialized — reload to sync');
-      return;
+      // Send movies as individual numbered params to avoid URL length issues
+      const params = { app: 'disney', action: 'init' };
+      MOVIES.forEach(function(m, i) {
+        params['t' + i] = m.t;
+        params['y' + i] = m.y;
+        params['f' + i] = m.f;
+      });
+      params['count'] = MOVIES.length;
+      await sheetGet(params);
+      setSyncStatus('ok', 'Sheet initialized');
+      updateCountdown(); render(); return;
     }
-
+    if (data.status === 'error') throw new Error(data.message);
     movieState = {};
-    (data.data || []).slice(1).forEach(row => {
+    (data.data || []).slice(1).forEach(function(row) {
       if (!row[0]) return;
-      movieState[row[0]] = { watched: row[3] === 'TRUE', date: row[4] || '' };
+      movieState[row[0]] = { watched: row[3] === 'TRUE' || row[3] === true, date: row[4] || '' };
     });
     savingsTotal = parseFloat(data.savingsTotal) || 0;
     try { savingsEntries = JSON.parse(data.savingsEntries) || []; } catch(e) { savingsEntries = []; }
-
-    setSyncStatus('ok', 'Synced · ' + new Date().toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'}));
-    updateCountdown();
-    updateSavingsUI();
-    render();
+    setSyncStatus('ok', 'Synced · ' + new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}));
+    updateCountdown(); updateSavingsUI(); render();
   } catch(e) {
-    setSyncStatus('err', 'Connection failed — check network');
+    setSyncStatus('err', 'Connection failed: ' + e.message);
     console.error(e);
   }
 }
 
-function queueWrite(payload) {
-  // Replace any existing write for the same title/action to avoid duplicates
-  pendingWrites = pendingWrites.filter(p => !(p.action === payload.action && p.title === payload.title));
-  pendingWrites.push(payload);
+function queueWrite(params) {
+  // Deduplicate by action+title
+  const key = params.action + (params.title || '');
+  pendingWrites = pendingWrites.filter(p => (p.action + (p.title||'')) !== key);
+  pendingWrites.push(params);
   if (writeTimer) clearTimeout(writeTimer);
   writeTimer = setTimeout(flushWrites, 800);
 }
@@ -429,17 +367,17 @@ async function flushWrites() {
   setSyncStatus('loading', 'Saving...');
   try {
     for (const p of batch) {
-      const result = await postToSheet(p);
+      const result = await sheetGet(p);
       if (result.status === 'error') throw new Error(result.message);
     }
-    setSyncStatus('ok', 'Saved · ' + new Date().toLocaleTimeString('en-US', {hour:'numeric', minute:'2-digit'}));
+    setSyncStatus('ok', 'Saved · ' + new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}));
   } catch(e) {
     setSyncStatus('err', 'Save failed: ' + e.message);
     console.error(e);
   }
 }
 
-// ── COUNTDOWN ──────────────────────────────────────────────────
+// ── COUNTDOWN ─────────────────────────────────────────────────
 function updateCountdown() {
   const now = new Date();
   const diff = TRIP - now;
@@ -447,7 +385,7 @@ function updateCountdown() {
   document.getElementById('cd-days').textContent = days;
   document.getElementById('cd-weeks').textContent = Math.floor(days / 7);
   document.getElementById('cd-months').textContent = Math.floor(days / 30.44);
-  const watched = MOVIES.filter(m => (movieState[m.t] || {}).watched).length;
+  const watched = MOVIES.filter(m => (movieState[m.t]||{}).watched).length;
   const remaining = MOVIES.length - watched;
   document.getElementById('cd-pace').textContent = remaining > 0 ? Math.round(days / remaining) : '—';
   document.getElementById('sleeps').textContent = days > 0 ? days + ' sleeps until the magic begins' : "The magic is here!";
@@ -458,217 +396,175 @@ function updateCountdown() {
   updatePace(watched, remaining, days);
 }
 
-// ── PACE ───────────────────────────────────────────────────────
+// ── PACE ──────────────────────────────────────────────────────
 function updatePace(watched, remaining, daysLeft) {
-  const today = new Date();
-  today.setHours(0,0,0,0);
-  const dayOfWeek = today.getDay();
-  const currentSun = new Date(today);
-  currentSun.setDate(today.getDate() - dayOfWeek);
-
-  const msPerWeek = 7 * 86400000;
-  const totalWeeks = Math.ceil((new Date('2027-01-09') - START) / msPerWeek);
-  const weeksElapsed = Math.max(0, Math.floor((today - START) / msPerWeek));
-  const weeksRemaining = Math.max(1, Math.ceil((new Date('2027-01-09') - today) / msPerWeek));
-  const idealPerWeek = MOVIES.length / totalWeeks;
-
-  const weeks = [-1, 0, 1].map(offset => {
-    const sun = new Date(currentSun);
-    sun.setDate(currentSun.getDate() + offset * 7);
-    const sat = new Date(sun);
-    sat.setDate(sun.getDate() + 6);
-    const weekNum = weeksElapsed + offset + 1;
-    const target = Math.max(2, Math.round(idealPerWeek * weekNum) - Math.round(idealPerWeek * (weekNum - 1)));
-    const fmt = d => d.toLocaleDateString('en-US', {month:'short', day:'numeric'});
-    return { label: offset === -1 ? 'Last week' : offset === 0 ? 'This week' : 'Next week', dates: fmt(sun) + ' – ' + fmt(sat), target, isCurrent: offset === 0 };
+  const today = new Date(); today.setHours(0,0,0,0);
+  const dow = today.getDay();
+  const sun = new Date(today); sun.setDate(today.getDate() - dow);
+  const msW = 7*86400000;
+  const totalWeeks = Math.ceil((new Date('2027-01-09') - START) / msW);
+  const weeksElapsed = Math.max(0, Math.floor((today - START) / msW));
+  const weeksLeft = Math.max(1, Math.ceil((new Date('2027-01-09') - today) / msW));
+  const perWeek = MOVIES.length / totalWeeks;
+  const weeks = [-1,0,1].map(off => {
+    const s = new Date(sun); s.setDate(sun.getDate() + off*7);
+    const e = new Date(s); e.setDate(s.getDate()+6);
+    const wn = weeksElapsed + off + 1;
+    const target = Math.max(2, Math.round(perWeek*wn) - Math.round(perWeek*(wn-1)));
+    const fmt = d => d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+    return { label: off===-1?'Last week':off===0?'This week':'Next week', dates:fmt(s)+' – '+fmt(e), target, cur:off===0 };
   });
-
   document.getElementById('pace-week-grid').innerHTML = weeks.map(w =>
-    `<div class="pace-week-block${w.isCurrent ? ' is-current' : ''}">
+    `<div class="pace-week-block${w.cur?' is-current':''}">
       <div class="pace-week-label">${w.label}</div>
       <div class="pace-week-dates">${w.dates}</div>
       <div class="pace-week-films">${w.target}</div>
-      <div class="pace-week-sub">${w.isCurrent ? 'target this week' : 'films to stay on pace'}</div>
+      <div class="pace-week-sub">${w.cur?'target this week':'films to stay on pace'}</div>
     </div>`
   ).join('');
-
-  const neededPerWeek = Math.ceil(remaining / weeksRemaining);
-  const idealByNow = Math.min(MOVIES.length, Math.round(idealPerWeek * (weeksElapsed + 1)));
-  const diff = watched - idealByNow;
+  const ideal = Math.min(MOVIES.length, Math.round(perWeek*(weeksElapsed+1)));
+  const diff2 = watched - ideal;
+  const need = Math.ceil(remaining / weeksLeft);
   let icon, html;
-  if (watched === MOVIES.length) { icon = '🌟'; html = `<strong>All ${MOVIES.length} films watched!</strong> You're ready for the magic.`; }
-  else if (diff >= 2) { icon = '✅'; html = `<strong>Ahead of pace by ${diff} film${diff !== 1 ? 's' : ''}.</strong> Aim for <strong>${neededPerWeek} film${neededPerWeek !== 1 ? 's' : ''}/week</strong> to finish all ${remaining} remaining by January 9th.`; }
-  else if (diff >= -1) { icon = '🟢'; html = `<strong>Right on track.</strong> Aim for <strong>${neededPerWeek} film${neededPerWeek !== 1 ? 's' : ''}/week</strong> to finish all ${remaining} remaining before the trip.`; }
-  else { const behind = Math.abs(diff); icon = '🔴'; html = `<strong>Behind by ${behind} film${behind !== 1 ? 's' : ''}.</strong> Watch <strong>${neededPerWeek} film${neededPerWeek !== 1 ? 's' : ''}/week</strong> to finish all ${remaining} remaining before January 9th.`; }
-  document.getElementById('pace-status-row').innerHTML = `<span class="pace-status-icon">${icon}</span><span class="pace-status-text">${html}</span>`;
+  if (watched===MOVIES.length){icon='🌟';html=`<strong>All ${MOVIES.length} films watched!</strong> You're ready for the magic.`;}
+  else if(diff2>=2){icon='✅';html=`<strong>Ahead of pace by ${diff2} films.</strong> Aim for <strong>${need} films/week</strong> to finish all ${remaining} remaining by January 9th.`;}
+  else if(diff2>=-1){icon='🟢';html=`<strong>Right on track.</strong> Aim for <strong>${need} films/week</strong> to finish all ${remaining} remaining before the trip.`;}
+  else{const b=Math.abs(diff2);icon='🔴';html=`<strong>Behind by ${b} films.</strong> Watch <strong>${need} films/week</strong> to finish all ${remaining} remaining before January 9th.`;}
+  document.getElementById('pace-status-row').innerHTML=`<span class="pace-status-icon">${icon}</span><span class="pace-status-text">${html}</span>`;
 }
 
 // ── SAVINGS ───────────────────────────────────────────────────
 function updateSavingsUI() {
-  const pct = Math.min(100, (savingsTotal / GOAL) * 100);
-  document.getElementById('savings-display').textContent = '$' + savingsTotal.toFixed(2);
-  document.getElementById('savings-goal-text').textContent = '$' + savingsTotal.toFixed(2) + ' of $2,847.94 saved';
-  document.getElementById('savings-fill').style.width = pct.toFixed(1) + '%';
+  const pct = Math.min(100,(savingsTotal/GOAL)*100);
+  document.getElementById('savings-display').textContent = '$'+savingsTotal.toFixed(2);
+  document.getElementById('savings-goal-text').textContent = '$'+savingsTotal.toFixed(2)+' of $2,847.94 saved';
+  document.getElementById('savings-fill').style.width = pct.toFixed(1)+'%';
   const recent = savingsEntries.slice(-4).reverse();
-  document.getElementById('savings-history').innerHTML = recent.map((e, i) =>
-    `<div class="savings-history-item"><span>${e.label}</span><button onclick="removeEntry(${savingsEntries.length - 1 - i})">✕</button></div>`
+  document.getElementById('savings-history').innerHTML = recent.map((e,i) =>
+    `<div class="savings-history-item"><span>${e.label}</span><button onclick="removeEntry(${savingsEntries.length-1-i})">✕</button></div>`
   ).join('');
 }
-
 function removeEntry(idx) {
-  if (!savingsEntries[idx]) return;
+  if(!savingsEntries[idx]) return;
   savingsTotal = Math.max(0, savingsTotal - savingsEntries[idx].amount);
-  savingsEntries.splice(idx, 1);
+  savingsEntries.splice(idx,1);
   updateSavingsUI();
-  queueWrite({ app: 'disney', action: 'updateSavings', total: savingsTotal.toFixed(2), entries: savingsEntries });
+  queueWrite({app:'disney',action:'updateSavings',total:savingsTotal.toFixed(2),entries:JSON.stringify(savingsEntries)});
 }
-
-document.getElementById('savings-add-btn').addEventListener('click', () => {
-  const input = document.getElementById('savings-input');
-  const val = parseFloat(input.value);
-  if (!val || val <= 0) return;
-  const label = '$' + val.toFixed(2) + ' · ' + new Date().toLocaleDateString('en-US', {month:'short', day:'numeric'});
-  savingsTotal += val;
-  savingsEntries.push({ amount: val, label });
-  input.value = '';
+document.getElementById('savings-add-btn').addEventListener('click',()=>{
+  const input=document.getElementById('savings-input');
+  const val=parseFloat(input.value);
+  if(!val||val<=0) return;
+  const label='$'+val.toFixed(2)+' · '+new Date().toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  savingsTotal+=val; savingsEntries.push({amount:val,label}); input.value='';
   updateSavingsUI();
-  queueWrite({ app: 'disney', action: 'updateSavings', total: savingsTotal.toFixed(2), entries: savingsEntries });
+  queueWrite({app:'disney',action:'updateSavings',total:savingsTotal.toFixed(2),entries:JSON.stringify(savingsEntries)});
 });
-
-document.getElementById('savings-input').addEventListener('keydown', e => {
-  if (e.key === 'Enter') document.getElementById('savings-add-btn').click();
-});
-
-document.getElementById('savings-reset-btn').addEventListener('click', () => {
-  if (confirm('Reset savings to $0?')) {
-    savingsTotal = 0; savingsEntries = [];
+document.getElementById('savings-input').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('savings-add-btn').click();});
+document.getElementById('savings-reset-btn').addEventListener('click',()=>{
+  if(confirm('Reset savings to $0?')){
+    savingsTotal=0; savingsEntries=[];
     updateSavingsUI();
-    queueWrite({ app: 'disney', action: 'updateSavings', total: '0', entries: [] });
+    queueWrite({app:'disney',action:'updateSavings',total:'0',entries:'[]'});
   }
 });
+document.getElementById('manual-sync-btn').addEventListener('click',loadFromSheet);
 
-document.getElementById('manual-sync-btn').addEventListener('click', loadFromSheet);
-
-// ── FILTERS ────────────────────────────────────────────────────
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.dataset.filter;
-    render();
+// ── FILTERS ───────────────────────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active'); currentFilter=btn.dataset.filter; render();
   });
 });
-document.getElementById('search').addEventListener('input', e => {
-  currentSearch = e.target.value;
-  render();
-});
+document.getElementById('search').addEventListener('input',e=>{currentSearch=e.target.value;render();});
 
-// ── RENDER ─────────────────────────────────────────────────────
+// ── RENDER ────────────────────────────────────────────────────
 function render() {
-  const wrap = document.getElementById('list-wrap');
-  wrap.innerHTML = '';
-  const search = currentSearch.toLowerCase();
-  const filtered = MOVIES.filter(m => {
-    const ms = movieState[m.t] || {};
-    if (search && !m.t.toLowerCase().includes(search)) return false;
-    if (currentFilter === 'unwatched') return !ms.watched;
-    if (currentFilter === 'watched') return ms.watched;
-    if (currentFilter === 'scheduled') return ms.date && !ms.watched;
+  const wrap=document.getElementById('list-wrap'); wrap.innerHTML='';
+  const search=currentSearch.toLowerCase();
+  const filtered=MOVIES.filter(m=>{
+    const ms=movieState[m.t]||{};
+    if(search&&!m.t.toLowerCase().includes(search)) return false;
+    if(currentFilter==='unwatched') return !ms.watched;
+    if(currentFilter==='watched') return ms.watched;
+    if(currentFilter==='scheduled') return ms.date&&!ms.watched;
     return true;
   });
-
-  let anyVisible = false;
-  ['Disney','Pixar','Star Wars','Marvel'].forEach(franchise => {
-    const group = filtered.filter(m => m.f === franchise);
-    if (!group.length) return;
-    anyVisible = true;
-    const watchedCount = group.filter(m => (movieState[m.t]||{}).watched).length;
-    const section = document.createElement('div');
-    section.className = 'franchise-section';
-    const header = document.createElement('div');
-    header.className = 'franchise-header';
-    header.style.background = FRANCHISE_BG[franchise];
-    header.innerHTML = `${FRANCHISE_LOGOS[franchise]}<span class="franchise-count">${watchedCount}/${group.length} watched</span><span class="franchise-chevron open">⌄</span>`;
-    const body = document.createElement('div');
-    body.className = 'franchise-body';
-    let collapsed = false;
-    header.addEventListener('click', () => {
-      collapsed = !collapsed;
-      body.style.display = collapsed ? 'none' : 'block';
-      header.querySelector('.franchise-chevron').classList.toggle('open', !collapsed);
+  let anyVisible=false;
+  ['Disney','Pixar','Star Wars','Marvel'].forEach(franchise=>{
+    const group=filtered.filter(m=>m.f===franchise);
+    if(!group.length) return;
+    anyVisible=true;
+    const watchedCount=group.filter(m=>(movieState[m.t]||{}).watched).length;
+    const section=document.createElement('div'); section.className='franchise-section';
+    const header=document.createElement('div'); header.className='franchise-header';
+    header.style.background=HEADER_BG[franchise];
+    header.innerHTML=`${LOGOS[franchise]}<span class="franchise-count">${watchedCount}/${group.length} watched</span><span class="franchise-chevron open">⌄</span>`;
+    const body=document.createElement('div'); body.className='franchise-body';
+    let collapsed=false;
+    header.addEventListener('click',()=>{
+      collapsed=!collapsed; body.style.display=collapsed?'none':'block';
+      header.querySelector('.franchise-chevron').classList.toggle('open',!collapsed);
     });
-    section.appendChild(header);
-    section.appendChild(body);
-
-    group.forEach(movie => {
-      const ms = movieState[movie.t] || {};
-      const safeId = movie.t.replace(/[^a-z0-9]/gi,'_');
-      const row = document.createElement('div');
-      row.className = 'movie-row' + (ms.watched ? ' watched' : '');
-      row.innerHTML = `
-        <button class="check-btn${ms.watched ? ' done' : ''}" data-title="${movie.t}" aria-label="${ms.watched ? 'Unmark' : 'Mark'} ${movie.t} as watched">${ms.watched ? '✓' : ''}</button>
+    section.appendChild(header); section.appendChild(body);
+    group.forEach(movie=>{
+      const ms=movieState[movie.t]||{};
+      const sid=movie.t.replace(/[^a-z0-9]/gi,'_');
+      const row=document.createElement('div');
+      row.className='movie-row'+(ms.watched?' watched':'');
+      row.innerHTML=`
+        <button class="check-btn${ms.watched?' done':''}" data-title="${movie.t}">${ms.watched?'✓':''}</button>
         <div class="movie-info"><div class="movie-title">${movie.t}</div><div class="movie-year">${movie.y}</div></div>
-        <button class="date-btn${ms.date ? ' has-date' : ''}" data-title="${movie.t}">${ms.date ? ms.date : '📅'}</button>
-      `;
+        <button class="date-btn${ms.date?' has-date':''}" data-title="${movie.t}">${ms.date?ms.date:'📅'}</button>`;
       body.appendChild(row);
-      const picker = document.createElement('div');
-      picker.className = 'date-picker-wrap';
-      picker.id = 'picker-' + safeId;
-      picker.innerHTML = `<span style="font-size:12px;color:var(--text-light);">Watch date:</span><input type="date" value="${ms.date || ''}" data-title="${movie.t}" /><button class="date-clear" data-title="${movie.t}">Clear</button>`;
+      const picker=document.createElement('div');
+      picker.className='date-picker-wrap'; picker.id='picker-'+sid;
+      picker.innerHTML=`<span style="font-size:12px;color:var(--text-light);">Watch date:</span><input type="date" value="${ms.date||''}" data-title="${movie.t}" /><button class="date-clear" data-title="${movie.t}">Clear</button>`;
       body.appendChild(picker);
     });
-
     wrap.appendChild(section);
   });
+  if(!anyVisible) wrap.innerHTML='<div class="empty-state">No films match your search.</div>';
 
-  if (!anyVisible) wrap.innerHTML = '<div class="empty-state">No films match your search.</div>';
-
-  wrap.querySelectorAll('.check-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const t = btn.dataset.title;
-      if (!movieState[t]) movieState[t] = {};
-      movieState[t].watched = !movieState[t].watched;
-      updateCountdown();
-      render();
-      queueWrite({ app: 'disney', action: 'updateMovie', title: t, watched: movieState[t].watched, date: movieState[t].date || '' });
+  wrap.querySelectorAll('.check-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const t=btn.dataset.title;
+      if(!movieState[t]) movieState[t]={};
+      movieState[t].watched=!movieState[t].watched;
+      updateCountdown(); render();
+      queueWrite({app:'disney',action:'updateMovie',title:t,watched:String(movieState[t].watched),date:movieState[t].date||''});
     });
   });
-
-  wrap.querySelectorAll('.date-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const safeId = btn.dataset.title.replace(/[^a-z0-9]/gi,'_');
-      const pickerEl = document.getElementById('picker-' + safeId);
-      if (!pickerEl) return;
-      const isOpen = pickerEl.classList.contains('open');
-      document.querySelectorAll('.date-picker-wrap.open').forEach(p => p.classList.remove('open'));
-      if (!isOpen) pickerEl.classList.add('open');
+  wrap.querySelectorAll('.date-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const sid=btn.dataset.title.replace(/[^a-z0-9]/gi,'_');
+      const p=document.getElementById('picker-'+sid);
+      if(!p) return;
+      const open=p.classList.contains('open');
+      document.querySelectorAll('.date-picker-wrap.open').forEach(x=>x.classList.remove('open'));
+      if(!open) p.classList.add('open');
     });
   });
-
-  wrap.querySelectorAll('.date-picker-wrap input[type=date]').forEach(input => {
-    input.addEventListener('change', () => {
-      const t = input.dataset.title;
-      if (!movieState[t]) movieState[t] = {};
-      movieState[t].date = input.value;
-      render();
-      queueWrite({ app: 'disney', action: 'updateMovie', title: t, watched: (movieState[t]||{}).watched || false, date: input.value });
+  wrap.querySelectorAll('.date-picker-wrap input[type=date]').forEach(input=>{
+    input.addEventListener('change',()=>{
+      const t=input.dataset.title;
+      if(!movieState[t]) movieState[t]={};
+      movieState[t].date=input.value; render();
+      queueWrite({app:'disney',action:'updateMovie',title:t,watched:String((movieState[t]||{}).watched||false),date:input.value});
     });
   });
-
-  wrap.querySelectorAll('.date-clear').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const t = btn.dataset.title;
-      if (movieState[t]) movieState[t].date = '';
-      render();
-      queueWrite({ app: 'disney', action: 'updateMovie', title: t, watched: (movieState[t]||{}).watched || false, date: '' });
+  wrap.querySelectorAll('.date-clear').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const t=btn.dataset.title;
+      if(movieState[t]) movieState[t].date=''; render();
+      queueWrite({app:'disney',action:'updateMovie',title:t,watched:String((movieState[t]||{}).watched||false),date:''});
     });
   });
 }
 
-// ── INIT ───────────────────────────────────────────────────────
-updateCountdown();
-render();
-loadFromSheet();
+// ── INIT ──────────────────────────────────────────────────────
+updateCountdown(); render(); loadFromSheet();
 setInterval(updateCountdown, 60000);
 </script>
 </body>
