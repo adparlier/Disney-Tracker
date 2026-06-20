@@ -367,9 +367,17 @@ function setSyncStatus(state, msg) {
   document.getElementById('sync-label').textContent = msg;
 }
 
-// Route all writes as GET requests — zero CORS issues with Apps Script
+// All writes go as GET requests with flat params — avoids CORS entirely
 async function postToSheet(payload) {
-  const params = new URLSearchParams({ data: JSON.stringify(payload) });
+  const flat = { app: payload.app };
+  flat.action = payload.action;
+  if (payload.title !== undefined) flat.title = payload.title;
+  if (payload.watched !== undefined) flat.watched = String(payload.watched);
+  if (payload.date !== undefined) flat.date = payload.date;
+  if (payload.total !== undefined) flat.total = payload.total;
+  if (payload.entries !== undefined) flat.entries = JSON.stringify(payload.entries);
+  if (payload.movies !== undefined) flat.movies = JSON.stringify(payload.movies);
+  const params = new URLSearchParams(flat);
   const res = await fetch(SCRIPT_URL + '?' + params.toString());
   const text = await res.text();
   try { return JSON.parse(text); } catch(e) { return { status: 'error', message: text }; }
