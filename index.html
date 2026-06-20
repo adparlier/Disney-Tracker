@@ -736,19 +736,25 @@ function setSyncStatus(state, msg) {
 
 
 async function apiFetch(payload) {
-  const res = await fetch(SCRIPT_URL, {
-    method: 'POST',
-    redirect: 'follow',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(payload)
-  });
+  // Use no-cors for writes — avoids CORS preflight, Apps Script accepts simple requests
+  if (payload.action !== 'load') {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify(payload)
+    });
+    return { status: 'ok' };
+  }
+  // For loads use a GET with URL params instead
+  const params = new URLSearchParams({ app: 'disney', action: payload.action });
+  const res = await fetch(SCRIPT_URL + '?' + params.toString(), { redirect: 'follow' });
   return res.json();
 }
 
 async function loadFromSheet() {
   setSyncStatus('loading', 'Syncing with Google Sheets...');
   try {
-    const res = await fetch(SCRIPT_URL + '?app=disney', { redirect: 'follow' });
+    const res = await fetch(SCRIPT_URL + '?app=disney', { redirect: 'follow', mode: 'cors' });
     const data = await res.json();
     if (data.status === 'empty') {
       await apiFetch({ app: 'disney', action: 'init', movies: MOVIES });
